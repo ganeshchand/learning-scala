@@ -3,9 +3,9 @@
   * Uses Junit
   */
 
-class ListJunitTest {
+class SampleJunitTest {
 def testIsEmpty = {
   val list = List()
-//  assertTrue("List should be empty", list.isEmpty)
+  assert(list.isEmpty)
 }
 }

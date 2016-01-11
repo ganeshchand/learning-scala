@@ -1,4 +1,4 @@
-import java.util.Calendar
+import java.util.{Locale, Date, Calendar}
 
 object scala_basic{
 
@@ -56,7 +56,11 @@ object scala_basic{
   val p1 = Person("Mr. Scala Programmer", 21)
   println(s"Name: ${p1.name}  Age: ${p1.age}")
 
-  class Book(var publishedDate = )
 }
+
+
+
+
+
 
 

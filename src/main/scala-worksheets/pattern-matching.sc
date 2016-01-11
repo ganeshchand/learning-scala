@@ -1,5 +1,7 @@
 //Scala pattern matching
 
+//1. Pattern Matching with Values
+
 def matchColor(color: String): String = {
   color match {
     case "red" => "RED"
@@ -60,3 +62,48 @@ for(i <- sunnyData){
   println(forecast(i))
 }
 
+// 2. Pattern Matching with Types
+case class Person(name: String)
+def functionWithAnyType(value: Any): String = {
+  value match {
+    case value: Int => s"$value if of type Int"
+    case value: String => s"$value if of type String"
+    case value: Person  => s"value if os type Person"
+  }
+}
+
+functionWithAnyType("Scala")
+
+
+// 3. Pattern Matching with Case Class
+
+case class Passenger(first: String, last: String)
+case class Train(travellers: Vector[Passenger], line: String)
+case class Bus(passengers: Vector[Passenger], capacity: Int)
+
+
+def travel(transportMode: Any): String = {
+  transportMode match {
+    case Train(travellers, line) =>
+      s"Train line $line $travellers"
+
+    case Bus(travellers, seats) =>
+      s"Bus size $seats $travellers"
+
+    case Passenger => "Walking along"
+
+    case _ => s"Unknown mode $transportMode"
+  }
+}
+
+val travellers = Vector(
+Passenger("Harvey", "Rabbit"),
+Passenger("Dorothy", "Gale")
+)
+
+val trip = Vector(
+Train(travellers, "London"),
+Bus(travellers, 100)
+)
+
+travel(trip(0))
